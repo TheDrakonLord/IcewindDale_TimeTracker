@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -251,6 +252,7 @@ namespace IcewindDale_TimeTracker
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            loadData();
             refresh();
         }
 
@@ -345,6 +347,150 @@ namespace IcewindDale_TimeTracker
             txtBlizzHour.Text = null;
             txtBlizzMin.Text = null;
             txtBlizzDuration.Text = null;
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            storeData();
+        }
+
+        private void storeData()
+        {
+            StreamWriter writer = new StreamWriter("data.txt");
+            writer.WriteLine(_currentDate);
+            writer.WriteLine(_currentDayNJ);
+            writer.WriteLine(_currentMonth);
+            writer.WriteLine(_currentYear);
+            writer.WriteLine(_currentHour);
+            writer.WriteLine(_currentMin);
+            writer.WriteLine(_currentSec);
+            writer.WriteLine(_currentMoonPhase);
+            writer.WriteLine(_currentHoliday);
+
+            writer.WriteLine(_blizzStartMonth);
+            writer.WriteLine(_blizzStartDay);
+            writer.WriteLine(_blizzStartHour);
+            writer.WriteLine(_blizzStartMin);
+            writer.WriteLine(_blizzEndMonth);
+            writer.WriteLine(_blizzEndDay);
+            writer.WriteLine(_blizzEndHour);
+            writer.WriteLine(_blizzEndMin);
+
+            writer.Close();
+        }
+
+        private void loadData()
+        {
+            try
+            {
+                StreamReader reader = new StreamReader("data.txt");
+                try
+                {
+
+                    do
+                    {
+                        if (int.TryParse(reader.ReadLine(), out _currentDate))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _currentDayNJ))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _currentMonth))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _currentYear))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _currentHour))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _currentMin))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _currentSec))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _currentMoonPhase))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _currentHoliday))
+                        {
+
+                        }
+
+
+                        if (int.TryParse(reader.ReadLine(), out _blizzStartMonth))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _blizzStartDay))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _blizzStartHour))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _blizzStartMin))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _blizzEndMonth))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _blizzEndDay))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _blizzEndHour))
+                        {
+
+                        }
+
+                        if (int.TryParse(reader.ReadLine(), out _blizzEndMin))
+                        {
+
+                        }
+
+                    } while (reader.Peek() != -1);
+                }
+                catch
+                {
+                    MessageBox.Show("Data File is Empty");
+                }
+                finally
+                {
+                    reader.Close();
+                }
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show("Data File not found");
+            }
+
         }
     }
 }
