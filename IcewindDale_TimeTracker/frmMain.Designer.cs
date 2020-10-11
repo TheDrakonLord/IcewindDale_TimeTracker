@@ -62,6 +62,7 @@
             this.lblAddMonth = new System.Windows.Forms.Label();
             this.lblAddYear = new System.Windows.Forms.Label();
             this.gbxEnvironment = new System.Windows.Forms.GroupBox();
+            this.txtSacrifices = new System.Windows.Forms.TextBox();
             this.txtDim = new System.Windows.Forms.TextBox();
             this.txtDark = new System.Windows.Forms.TextBox();
             this.txtBlizzard = new System.Windows.Forms.TextBox();
@@ -78,7 +79,6 @@
             this.lblBlizzHour = new System.Windows.Forms.Label();
             this.lblBlizzDay = new System.Windows.Forms.Label();
             this.lblBlizzMonth = new System.Windows.Forms.Label();
-            this.txtSacrifices = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMoonPhase)).BeginInit();
             this.gbxClock.SuspendLayout();
             this.gbxAddTime.SuspendLayout();
@@ -410,6 +410,15 @@
             this.gbxEnvironment.TabStop = false;
             this.gbxEnvironment.Text = "Environment";
             // 
+            // txtSacrifices
+            // 
+            this.txtSacrifices.Location = new System.Drawing.Point(166, 127);
+            this.txtSacrifices.Name = "txtSacrifices";
+            this.txtSacrifices.ReadOnly = true;
+            this.txtSacrifices.Size = new System.Drawing.Size(100, 20);
+            this.txtSacrifices.TabIndex = 7;
+            this.txtSacrifices.Text = "Sacrifices";
+            // 
             // txtDim
             // 
             this.txtDim.Location = new System.Drawing.Point(166, 100);
@@ -556,15 +565,6 @@
             this.lblBlizzMonth.TabIndex = 1;
             this.lblBlizzMonth.Text = "Month";
             // 
-            // txtSacrifices
-            // 
-            this.txtSacrifices.Location = new System.Drawing.Point(166, 127);
-            this.txtSacrifices.Name = "txtSacrifices";
-            this.txtSacrifices.ReadOnly = true;
-            this.txtSacrifices.Size = new System.Drawing.Size(100, 20);
-            this.txtSacrifices.TabIndex = 7;
-            this.txtSacrifices.Text = "Sacrifices";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -576,6 +576,7 @@
             this.Controls.Add(this.gbxClock);
             this.Name = "frmMain";
             this.Text = "Icewind Dale Time Tracker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxMoonPhase)).EndInit();
             this.gbxClock.ResumeLayout(false);
