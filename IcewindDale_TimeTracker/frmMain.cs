@@ -49,6 +49,7 @@ namespace IcewindDale_TimeTracker
         const int _maxMin = 59;
         const int _minSec = 0;
         const int _maxSec = 59;
+        const int _roundsPerSec = 6;
 
         int _currentDate = _startDate;
         int _currentDayNJ = _startDate;
@@ -68,6 +69,12 @@ namespace IcewindDale_TimeTracker
         int _blizzEndDay = 0;
         int _blizzEndHour = 0;
         int _blizzEndMin = 0;
+
+        int _irlHours = 0;
+        int _irlMinutes = 0;
+        int _irlSeconds = 0;
+
+        int _rounds = 0;
 
         public frmMain()
         {
@@ -253,6 +260,8 @@ namespace IcewindDale_TimeTracker
         private void frmMain_Load(object sender, EventArgs e)
         {
             loadData();
+            tmrIRL.Enabled = false;
+            lblTimer.Text = $"{_irlHours} : {_irlMinutes} : {_irlSeconds}";
             refresh();
         }
 
@@ -491,6 +500,68 @@ namespace IcewindDale_TimeTracker
                 MessageBox.Show("Data File not found");
             }
 
+        }
+
+        private void tmrIRL_Tick(object sender, EventArgs e)
+        {
+            _irlSeconds += 1;
+            if (_irlSeconds > _maxSec)
+            {
+                _irlMinutes += 1;
+                _irlSeconds = 0;
+            }
+            if (_irlMinutes > _maxMin)
+            {
+                _irlHours += 1;
+                _irlMinutes = 0;
+            }
+
+            lblTimer.Text = $"{_irlHours} : {_irlMinutes} : {_irlSeconds}";
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            tmrIRL.Enabled = true;
+            tmrIRL.Start();
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            tmrIRL.Stop();
+        }
+
+        private void btnAddIRL_Click(object sender, EventArgs e)
+        {
+            tmrIRL.Stop();
+            tmrIRL.Enabled = false;
+            advanceTime(_irlSeconds + (_irlMinutes * _minInSeconds) + (_irlHours * _hourInSeconds));
+            _irlHours = 0;
+            _irlMinutes = 0;
+            _irlSeconds = 0;
+            lblTimer.Text = $"{_irlHours} : {_irlMinutes} : {_irlSeconds}";
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            if (tmrIRL.Enabled == true)
+            {
+                tmrIRL.Stop();
+                tmrIRL.Enabled = false;
+            }
+            _irlHours = 0;
+            _irlMinutes = 0;
+            _irlSeconds = 0;
+            lblTimer.Text = $"{_irlHours} : {_irlMinutes} : {_irlSeconds}";
+        }
+
+        private void btnAddRounds_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtNumRounds.Text, out _rounds))
+            {
+                advanceTime(_rounds * _roundsPerSec);
+                _rounds = 0;
+            }
+            txtNumRounds.Clear();
         }
     }
 }
