@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pbxMoonPhase = new System.Windows.Forms.PictureBox();
             this.gbxClock = new System.Windows.Forms.GroupBox();
             this.txtHoliday = new System.Windows.Forms.TextBox();
@@ -79,11 +80,24 @@
             this.lblBlizzHour = new System.Windows.Forms.Label();
             this.lblBlizzDay = new System.Windows.Forms.Label();
             this.lblBlizzMonth = new System.Windows.Forms.Label();
+            this.gbxTimer = new System.Windows.Forms.GroupBox();
+            this.gbxRounds = new System.Windows.Forms.GroupBox();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnAddIRL = new System.Windows.Forms.Button();
+            this.tmrIRL = new System.Windows.Forms.Timer(this.components);
+            this.lblNumRounds = new System.Windows.Forms.Label();
+            this.txtNumRounds = new System.Windows.Forms.TextBox();
+            this.btnAddRounds = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMoonPhase)).BeginInit();
             this.gbxClock.SuspendLayout();
             this.gbxAddTime.SuspendLayout();
             this.gbxEnvironment.SuspendLayout();
             this.gbxBlizzard.SuspendLayout();
+            this.gbxTimer.SuspendLayout();
+            this.gbxRounds.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbxMoonPhase
@@ -565,11 +579,120 @@
             this.lblBlizzMonth.TabIndex = 1;
             this.lblBlizzMonth.Text = "Month";
             // 
+            // gbxTimer
+            // 
+            this.gbxTimer.Controls.Add(this.btnAddIRL);
+            this.gbxTimer.Controls.Add(this.btnReset);
+            this.gbxTimer.Controls.Add(this.btnPause);
+            this.gbxTimer.Controls.Add(this.btnStart);
+            this.gbxTimer.Controls.Add(this.lblTimer);
+            this.gbxTimer.Location = new System.Drawing.Point(14, 311);
+            this.gbxTimer.Name = "gbxTimer";
+            this.gbxTimer.Size = new System.Drawing.Size(354, 100);
+            this.gbxTimer.TabIndex = 6;
+            this.gbxTimer.TabStop = false;
+            this.gbxTimer.Text = "Add IRL Time";
+            // 
+            // gbxRounds
+            // 
+            this.gbxRounds.Controls.Add(this.btnAddRounds);
+            this.gbxRounds.Controls.Add(this.txtNumRounds);
+            this.gbxRounds.Controls.Add(this.lblNumRounds);
+            this.gbxRounds.Location = new System.Drawing.Point(375, 311);
+            this.gbxRounds.Name = "gbxRounds";
+            this.gbxRounds.Size = new System.Drawing.Size(275, 100);
+            this.gbxRounds.TabIndex = 7;
+            this.gbxRounds.TabStop = false;
+            this.gbxRounds.Text = "Add Rounds";
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(59, 16);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(211, 37);
+            this.lblTimer.TabIndex = 0;
+            this.lblTimer.Text = "HH : MM : SS";
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(6, 71);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.Location = new System.Drawing.Point(87, 71);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(75, 23);
+            this.btnPause.TabIndex = 2;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(271, 71);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 3;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnAddIRL
+            // 
+            this.btnAddIRL.Location = new System.Drawing.Point(190, 71);
+            this.btnAddIRL.Name = "btnAddIRL";
+            this.btnAddIRL.Size = new System.Drawing.Size(75, 23);
+            this.btnAddIRL.TabIndex = 4;
+            this.btnAddIRL.Text = "Add Time";
+            this.btnAddIRL.UseVisualStyleBackColor = true;
+            this.btnAddIRL.Click += new System.EventHandler(this.btnAddIRL_Click);
+            // 
+            // tmrIRL
+            // 
+            this.tmrIRL.Interval = 1000;
+            this.tmrIRL.Tick += new System.EventHandler(this.tmrIRL_Tick);
+            // 
+            // lblNumRounds
+            // 
+            this.lblNumRounds.AutoSize = true;
+            this.lblNumRounds.Location = new System.Drawing.Point(6, 34);
+            this.lblNumRounds.Name = "lblNumRounds";
+            this.lblNumRounds.Size = new System.Drawing.Size(66, 13);
+            this.lblNumRounds.TabIndex = 0;
+            this.lblNumRounds.Text = "# of Rounds";
+            // 
+            // txtNumRounds
+            // 
+            this.txtNumRounds.Location = new System.Drawing.Point(6, 60);
+            this.txtNumRounds.Name = "txtNumRounds";
+            this.txtNumRounds.Size = new System.Drawing.Size(100, 20);
+            this.txtNumRounds.TabIndex = 1;
+            // 
+            // btnAddRounds
+            // 
+            this.btnAddRounds.Location = new System.Drawing.Point(191, 60);
+            this.btnAddRounds.Name = "btnAddRounds";
+            this.btnAddRounds.Size = new System.Drawing.Size(75, 23);
+            this.btnAddRounds.TabIndex = 2;
+            this.btnAddRounds.Text = "Add Rounds";
+            this.btnAddRounds.UseVisualStyleBackColor = true;
+            this.btnAddRounds.Click += new System.EventHandler(this.btnAddRounds_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 310);
+            this.ClientSize = new System.Drawing.Size(655, 419);
+            this.Controls.Add(this.gbxRounds);
+            this.Controls.Add(this.gbxTimer);
             this.Controls.Add(this.gbxBlizzard);
             this.Controls.Add(this.gbxEnvironment);
             this.Controls.Add(this.gbxAddTime);
@@ -587,6 +710,10 @@
             this.gbxEnvironment.PerformLayout();
             this.gbxBlizzard.ResumeLayout(false);
             this.gbxBlizzard.PerformLayout();
+            this.gbxTimer.ResumeLayout(false);
+            this.gbxTimer.PerformLayout();
+            this.gbxRounds.ResumeLayout(false);
+            this.gbxRounds.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -644,6 +771,17 @@
         private System.Windows.Forms.Label lblBlizzDay;
         private System.Windows.Forms.Label lblBlizzMonth;
         private System.Windows.Forms.TextBox txtSacrifices;
+        private System.Windows.Forms.GroupBox gbxTimer;
+        private System.Windows.Forms.Button btnAddIRL;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.GroupBox gbxRounds;
+        private System.Windows.Forms.Timer tmrIRL;
+        private System.Windows.Forms.Button btnAddRounds;
+        private System.Windows.Forms.TextBox txtNumRounds;
+        private System.Windows.Forms.Label lblNumRounds;
     }
 }
 
