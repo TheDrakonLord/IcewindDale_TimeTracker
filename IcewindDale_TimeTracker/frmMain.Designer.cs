@@ -81,16 +81,43 @@
             this.lblBlizzDay = new System.Windows.Forms.Label();
             this.lblBlizzMonth = new System.Windows.Forms.Label();
             this.gbxTimer = new System.Windows.Forms.GroupBox();
-            this.gbxRounds = new System.Windows.Forms.GroupBox();
-            this.lblTimer = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.btnPause = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnAddIRL = new System.Windows.Forms.Button();
-            this.tmrIRL = new System.Windows.Forms.Timer(this.components);
-            this.lblNumRounds = new System.Windows.Forms.Label();
-            this.txtNumRounds = new System.Windows.Forms.TextBox();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.gbxRounds = new System.Windows.Forms.GroupBox();
             this.btnAddRounds = new System.Windows.Forms.Button();
+            this.txtNumRounds = new System.Windows.Forms.TextBox();
+            this.lblNumRounds = new System.Windows.Forms.Label();
+            this.tmrIRL = new System.Windows.Forms.Timer(this.components);
+            this.gbxCh4 = new System.Windows.Forms.GroupBox();
+            this.btnStartCh4 = new System.Windows.Forms.Button();
+            this.btnResetCh4 = new System.Windows.Forms.Button();
+            this.btnStartShowdown = new System.Windows.Forms.Button();
+            this.btnEndShowdown = new System.Windows.Forms.Button();
+            this.txtToDougans = new System.Windows.Forms.TextBox();
+            this.txtDougans = new System.Windows.Forms.TextBox();
+            this.txtToGoodMead = new System.Windows.Forms.TextBox();
+            this.txtGoodMead = new System.Windows.Forms.TextBox();
+            this.txtToEasthaven = new System.Windows.Forms.TextBox();
+            this.txtEasthaven = new System.Windows.Forms.TextBox();
+            this.txtToCaerDineval = new System.Windows.Forms.TextBox();
+            this.txtCaerDineval = new System.Windows.Forms.TextBox();
+            this.txtToCaerKonig = new System.Windows.Forms.TextBox();
+            this.txtCaerKonig = new System.Windows.Forms.TextBox();
+            this.txtToTermalaine = new System.Windows.Forms.TextBox();
+            this.txtTermalaine = new System.Windows.Forms.TextBox();
+            this.txtToLonelywood = new System.Windows.Forms.TextBox();
+            this.txtLonelywood = new System.Windows.Forms.TextBox();
+            this.txtToBremen = new System.Windows.Forms.TextBox();
+            this.txtBremen = new System.Windows.Forms.TextBox();
+            this.txtToTargos = new System.Windows.Forms.TextBox();
+            this.txtTargos = new System.Windows.Forms.TextBox();
+            this.txtToBrynShander = new System.Windows.Forms.TextBox();
+            this.txtBrynShander = new System.Windows.Forms.TextBox();
+            this.txtToSunblight = new System.Windows.Forms.TextBox();
+            this.txtCh4SpecialWeather = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMoonPhase)).BeginInit();
             this.gbxClock.SuspendLayout();
             this.gbxAddTime.SuspendLayout();
@@ -98,6 +125,7 @@
             this.gbxBlizzard.SuspendLayout();
             this.gbxTimer.SuspendLayout();
             this.gbxRounds.SuspendLayout();
+            this.gbxCh4.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbxMoonPhase
@@ -593,6 +621,56 @@
             this.gbxTimer.TabStop = false;
             this.gbxTimer.Text = "Add IRL Time";
             // 
+            // btnAddIRL
+            // 
+            this.btnAddIRL.Location = new System.Drawing.Point(190, 71);
+            this.btnAddIRL.Name = "btnAddIRL";
+            this.btnAddIRL.Size = new System.Drawing.Size(75, 23);
+            this.btnAddIRL.TabIndex = 4;
+            this.btnAddIRL.Text = "Add Time";
+            this.btnAddIRL.UseVisualStyleBackColor = true;
+            this.btnAddIRL.Click += new System.EventHandler(this.btnAddIRL_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(271, 71);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 3;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.Location = new System.Drawing.Point(87, 71);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(75, 23);
+            this.btnPause.TabIndex = 2;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(6, 71);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(59, 16);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(211, 37);
+            this.lblTimer.TabIndex = 0;
+            this.lblTimer.Text = "HH : MM : SS";
+            // 
             // gbxRounds
             // 
             this.gbxRounds.Controls.Add(this.btnAddRounds);
@@ -605,77 +683,6 @@
             this.gbxRounds.TabStop = false;
             this.gbxRounds.Text = "Add Rounds";
             // 
-            // lblTimer
-            // 
-            this.lblTimer.AutoSize = true;
-            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(59, 16);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(211, 37);
-            this.lblTimer.TabIndex = 0;
-            this.lblTimer.Text = "HH : MM : SS";
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(6, 71);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 1;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // btnPause
-            // 
-            this.btnPause.Location = new System.Drawing.Point(87, 71);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(75, 23);
-            this.btnPause.TabIndex = 2;
-            this.btnPause.Text = "Pause";
-            this.btnPause.UseVisualStyleBackColor = true;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(271, 71);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 3;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnAddIRL
-            // 
-            this.btnAddIRL.Location = new System.Drawing.Point(190, 71);
-            this.btnAddIRL.Name = "btnAddIRL";
-            this.btnAddIRL.Size = new System.Drawing.Size(75, 23);
-            this.btnAddIRL.TabIndex = 4;
-            this.btnAddIRL.Text = "Add Time";
-            this.btnAddIRL.UseVisualStyleBackColor = true;
-            this.btnAddIRL.Click += new System.EventHandler(this.btnAddIRL_Click);
-            // 
-            // tmrIRL
-            // 
-            this.tmrIRL.Interval = 1000;
-            this.tmrIRL.Tick += new System.EventHandler(this.tmrIRL_Tick);
-            // 
-            // lblNumRounds
-            // 
-            this.lblNumRounds.AutoSize = true;
-            this.lblNumRounds.Location = new System.Drawing.Point(6, 34);
-            this.lblNumRounds.Name = "lblNumRounds";
-            this.lblNumRounds.Size = new System.Drawing.Size(66, 13);
-            this.lblNumRounds.TabIndex = 0;
-            this.lblNumRounds.Text = "# of Rounds";
-            // 
-            // txtNumRounds
-            // 
-            this.txtNumRounds.Location = new System.Drawing.Point(6, 60);
-            this.txtNumRounds.Name = "txtNumRounds";
-            this.txtNumRounds.Size = new System.Drawing.Size(100, 20);
-            this.txtNumRounds.TabIndex = 1;
-            // 
             // btnAddRounds
             // 
             this.btnAddRounds.Location = new System.Drawing.Point(191, 60);
@@ -686,11 +693,297 @@
             this.btnAddRounds.UseVisualStyleBackColor = true;
             this.btnAddRounds.Click += new System.EventHandler(this.btnAddRounds_Click);
             // 
+            // txtNumRounds
+            // 
+            this.txtNumRounds.Location = new System.Drawing.Point(6, 60);
+            this.txtNumRounds.Name = "txtNumRounds";
+            this.txtNumRounds.Size = new System.Drawing.Size(100, 20);
+            this.txtNumRounds.TabIndex = 1;
+            // 
+            // lblNumRounds
+            // 
+            this.lblNumRounds.AutoSize = true;
+            this.lblNumRounds.Location = new System.Drawing.Point(6, 34);
+            this.lblNumRounds.Name = "lblNumRounds";
+            this.lblNumRounds.Size = new System.Drawing.Size(66, 13);
+            this.lblNumRounds.TabIndex = 0;
+            this.lblNumRounds.Text = "# of Rounds";
+            // 
+            // tmrIRL
+            // 
+            this.tmrIRL.Interval = 1000;
+            this.tmrIRL.Tick += new System.EventHandler(this.tmrIRL_Tick);
+            // 
+            // gbxCh4
+            // 
+            this.gbxCh4.Controls.Add(this.txtCh4SpecialWeather);
+            this.gbxCh4.Controls.Add(this.txtToSunblight);
+            this.gbxCh4.Controls.Add(this.txtBrynShander);
+            this.gbxCh4.Controls.Add(this.txtToBrynShander);
+            this.gbxCh4.Controls.Add(this.txtTargos);
+            this.gbxCh4.Controls.Add(this.txtToTargos);
+            this.gbxCh4.Controls.Add(this.txtBremen);
+            this.gbxCh4.Controls.Add(this.txtToBremen);
+            this.gbxCh4.Controls.Add(this.txtLonelywood);
+            this.gbxCh4.Controls.Add(this.txtToLonelywood);
+            this.gbxCh4.Controls.Add(this.txtTermalaine);
+            this.gbxCh4.Controls.Add(this.txtToTermalaine);
+            this.gbxCh4.Controls.Add(this.txtCaerKonig);
+            this.gbxCh4.Controls.Add(this.txtToCaerKonig);
+            this.gbxCh4.Controls.Add(this.txtCaerDineval);
+            this.gbxCh4.Controls.Add(this.txtToCaerDineval);
+            this.gbxCh4.Controls.Add(this.txtEasthaven);
+            this.gbxCh4.Controls.Add(this.txtToEasthaven);
+            this.gbxCh4.Controls.Add(this.txtGoodMead);
+            this.gbxCh4.Controls.Add(this.txtToGoodMead);
+            this.gbxCh4.Controls.Add(this.txtDougans);
+            this.gbxCh4.Controls.Add(this.txtToDougans);
+            this.gbxCh4.Controls.Add(this.btnEndShowdown);
+            this.gbxCh4.Controls.Add(this.btnStartShowdown);
+            this.gbxCh4.Controls.Add(this.btnResetCh4);
+            this.gbxCh4.Controls.Add(this.btnStartCh4);
+            this.gbxCh4.Location = new System.Drawing.Point(14, 418);
+            this.gbxCh4.Name = "gbxCh4";
+            this.gbxCh4.Size = new System.Drawing.Size(637, 138);
+            this.gbxCh4.TabIndex = 8;
+            this.gbxCh4.TabStop = false;
+            this.gbxCh4.Text = "Chapter 4 Tracking";
+            // 
+            // btnStartCh4
+            // 
+            this.btnStartCh4.Location = new System.Drawing.Point(6, 109);
+            this.btnStartCh4.Name = "btnStartCh4";
+            this.btnStartCh4.Size = new System.Drawing.Size(104, 23);
+            this.btnStartCh4.TabIndex = 0;
+            this.btnStartCh4.Text = "Dragon Departs";
+            this.btnStartCh4.UseVisualStyleBackColor = true;
+            this.btnStartCh4.Click += new System.EventHandler(this.btnStartCh4_Click);
+            // 
+            // btnResetCh4
+            // 
+            this.btnResetCh4.Location = new System.Drawing.Point(557, 109);
+            this.btnResetCh4.Name = "btnResetCh4";
+            this.btnResetCh4.Size = new System.Drawing.Size(75, 23);
+            this.btnResetCh4.TabIndex = 1;
+            this.btnResetCh4.Text = "Reset";
+            this.btnResetCh4.UseVisualStyleBackColor = true;
+            this.btnResetCh4.Click += new System.EventHandler(this.btnResetCh4_Click);
+            // 
+            // btnStartShowdown
+            // 
+            this.btnStartShowdown.Location = new System.Drawing.Point(223, 109);
+            this.btnStartShowdown.Name = "btnStartShowdown";
+            this.btnStartShowdown.Size = new System.Drawing.Size(102, 23);
+            this.btnStartShowdown.TabIndex = 2;
+            this.btnStartShowdown.Text = "Start Showdown";
+            this.btnStartShowdown.UseVisualStyleBackColor = true;
+            this.btnStartShowdown.Click += new System.EventHandler(this.btnStartShowdown_Click);
+            // 
+            // btnEndShowdown
+            // 
+            this.btnEndShowdown.Location = new System.Drawing.Point(331, 108);
+            this.btnEndShowdown.Name = "btnEndShowdown";
+            this.btnEndShowdown.Size = new System.Drawing.Size(99, 23);
+            this.btnEndShowdown.TabIndex = 3;
+            this.btnEndShowdown.Text = "Dragon Flees";
+            this.btnEndShowdown.UseVisualStyleBackColor = true;
+            this.btnEndShowdown.Click += new System.EventHandler(this.btnEndShowdown_Click);
+            // 
+            // txtToDougans
+            // 
+            this.txtToDougans.BackColor = System.Drawing.SystemColors.Control;
+            this.txtToDougans.Location = new System.Drawing.Point(13, 20);
+            this.txtToDougans.Name = "txtToDougans";
+            this.txtToDougans.ReadOnly = true;
+            this.txtToDougans.Size = new System.Drawing.Size(30, 20);
+            this.txtToDougans.TabIndex = 4;
+            // 
+            // txtDougans
+            // 
+            this.txtDougans.Location = new System.Drawing.Point(50, 19);
+            this.txtDougans.Name = "txtDougans";
+            this.txtDougans.ReadOnly = true;
+            this.txtDougans.Size = new System.Drawing.Size(80, 20);
+            this.txtDougans.TabIndex = 5;
+            this.txtDougans.Text = "Dougan\'s Hole";
+            // 
+            // txtToGoodMead
+            // 
+            this.txtToGoodMead.Location = new System.Drawing.Point(136, 19);
+            this.txtToGoodMead.Name = "txtToGoodMead";
+            this.txtToGoodMead.ReadOnly = true;
+            this.txtToGoodMead.Size = new System.Drawing.Size(30, 20);
+            this.txtToGoodMead.TabIndex = 6;
+            // 
+            // txtGoodMead
+            // 
+            this.txtGoodMead.Location = new System.Drawing.Point(172, 19);
+            this.txtGoodMead.Name = "txtGoodMead";
+            this.txtGoodMead.ReadOnly = true;
+            this.txtGoodMead.Size = new System.Drawing.Size(63, 20);
+            this.txtGoodMead.TabIndex = 7;
+            this.txtGoodMead.Text = "Good Mead";
+            // 
+            // txtToEasthaven
+            // 
+            this.txtToEasthaven.Location = new System.Drawing.Point(239, 19);
+            this.txtToEasthaven.Name = "txtToEasthaven";
+            this.txtToEasthaven.ReadOnly = true;
+            this.txtToEasthaven.Size = new System.Drawing.Size(30, 20);
+            this.txtToEasthaven.TabIndex = 8;
+            // 
+            // txtEasthaven
+            // 
+            this.txtEasthaven.Location = new System.Drawing.Point(275, 19);
+            this.txtEasthaven.Name = "txtEasthaven";
+            this.txtEasthaven.ReadOnly = true;
+            this.txtEasthaven.Size = new System.Drawing.Size(57, 20);
+            this.txtEasthaven.TabIndex = 9;
+            this.txtEasthaven.Text = "Easthaven";
+            // 
+            // txtToCaerDineval
+            // 
+            this.txtToCaerDineval.Location = new System.Drawing.Point(338, 19);
+            this.txtToCaerDineval.Name = "txtToCaerDineval";
+            this.txtToCaerDineval.ReadOnly = true;
+            this.txtToCaerDineval.Size = new System.Drawing.Size(30, 20);
+            this.txtToCaerDineval.TabIndex = 10;
+            // 
+            // txtCaerDineval
+            // 
+            this.txtCaerDineval.Location = new System.Drawing.Point(374, 19);
+            this.txtCaerDineval.Name = "txtCaerDineval";
+            this.txtCaerDineval.ReadOnly = true;
+            this.txtCaerDineval.Size = new System.Drawing.Size(69, 20);
+            this.txtCaerDineval.TabIndex = 11;
+            this.txtCaerDineval.Text = "Caer-Dineval";
+            // 
+            // txtToCaerKonig
+            // 
+            this.txtToCaerKonig.Location = new System.Drawing.Point(449, 19);
+            this.txtToCaerKonig.Name = "txtToCaerKonig";
+            this.txtToCaerKonig.ReadOnly = true;
+            this.txtToCaerKonig.Size = new System.Drawing.Size(30, 20);
+            this.txtToCaerKonig.TabIndex = 12;
+            // 
+            // txtCaerKonig
+            // 
+            this.txtCaerKonig.Location = new System.Drawing.Point(485, 20);
+            this.txtCaerKonig.Name = "txtCaerKonig";
+            this.txtCaerKonig.ReadOnly = true;
+            this.txtCaerKonig.Size = new System.Drawing.Size(63, 20);
+            this.txtCaerKonig.TabIndex = 13;
+            this.txtCaerKonig.Text = "Caer-Konig";
+            // 
+            // txtToTermalaine
+            // 
+            this.txtToTermalaine.Location = new System.Drawing.Point(12, 46);
+            this.txtToTermalaine.Name = "txtToTermalaine";
+            this.txtToTermalaine.ReadOnly = true;
+            this.txtToTermalaine.Size = new System.Drawing.Size(30, 20);
+            this.txtToTermalaine.TabIndex = 14;
+            // 
+            // txtTermalaine
+            // 
+            this.txtTermalaine.Location = new System.Drawing.Point(50, 45);
+            this.txtTermalaine.Name = "txtTermalaine";
+            this.txtTermalaine.ReadOnly = true;
+            this.txtTermalaine.Size = new System.Drawing.Size(59, 20);
+            this.txtTermalaine.TabIndex = 15;
+            this.txtTermalaine.Text = "Termalaine";
+            // 
+            // txtToLonelywood
+            // 
+            this.txtToLonelywood.Location = new System.Drawing.Point(115, 45);
+            this.txtToLonelywood.Name = "txtToLonelywood";
+            this.txtToLonelywood.ReadOnly = true;
+            this.txtToLonelywood.Size = new System.Drawing.Size(30, 20);
+            this.txtToLonelywood.TabIndex = 16;
+            // 
+            // txtLonelywood
+            // 
+            this.txtLonelywood.Location = new System.Drawing.Point(151, 45);
+            this.txtLonelywood.Name = "txtLonelywood";
+            this.txtLonelywood.ReadOnly = true;
+            this.txtLonelywood.Size = new System.Drawing.Size(67, 20);
+            this.txtLonelywood.TabIndex = 17;
+            this.txtLonelywood.Text = "Lonelywood";
+            // 
+            // txtToBremen
+            // 
+            this.txtToBremen.Location = new System.Drawing.Point(222, 45);
+            this.txtToBremen.Name = "txtToBremen";
+            this.txtToBremen.ReadOnly = true;
+            this.txtToBremen.Size = new System.Drawing.Size(30, 20);
+            this.txtToBremen.TabIndex = 18;
+            // 
+            // txtBremen
+            // 
+            this.txtBremen.Location = new System.Drawing.Point(258, 45);
+            this.txtBremen.Name = "txtBremen";
+            this.txtBremen.ReadOnly = true;
+            this.txtBremen.Size = new System.Drawing.Size(43, 20);
+            this.txtBremen.TabIndex = 19;
+            this.txtBremen.Text = "Bremen";
+            // 
+            // txtToTargos
+            // 
+            this.txtToTargos.Location = new System.Drawing.Point(307, 46);
+            this.txtToTargos.Name = "txtToTargos";
+            this.txtToTargos.ReadOnly = true;
+            this.txtToTargos.Size = new System.Drawing.Size(30, 20);
+            this.txtToTargos.TabIndex = 20;
+            // 
+            // txtTargos
+            // 
+            this.txtTargos.Location = new System.Drawing.Point(343, 46);
+            this.txtTargos.Name = "txtTargos";
+            this.txtTargos.ReadOnly = true;
+            this.txtTargos.Size = new System.Drawing.Size(40, 20);
+            this.txtTargos.TabIndex = 21;
+            this.txtTargos.Text = "Targos";
+            // 
+            // txtToBrynShander
+            // 
+            this.txtToBrynShander.Location = new System.Drawing.Point(389, 45);
+            this.txtToBrynShander.Name = "txtToBrynShander";
+            this.txtToBrynShander.ReadOnly = true;
+            this.txtToBrynShander.Size = new System.Drawing.Size(30, 20);
+            this.txtToBrynShander.TabIndex = 22;
+            // 
+            // txtBrynShander
+            // 
+            this.txtBrynShander.Location = new System.Drawing.Point(425, 45);
+            this.txtBrynShander.Name = "txtBrynShander";
+            this.txtBrynShander.ReadOnly = true;
+            this.txtBrynShander.Size = new System.Drawing.Size(77, 20);
+            this.txtBrynShander.TabIndex = 23;
+            this.txtBrynShander.Text = "Bryn Shander";
+            // 
+            // txtToSunblight
+            // 
+            this.txtToSunblight.Location = new System.Drawing.Point(508, 45);
+            this.txtToSunblight.Name = "txtToSunblight";
+            this.txtToSunblight.ReadOnly = true;
+            this.txtToSunblight.Size = new System.Drawing.Size(30, 20);
+            this.txtToSunblight.TabIndex = 24;
+            // 
+            // txtCh4SpecialWeather
+            // 
+            this.txtCh4SpecialWeather.Location = new System.Drawing.Point(112, 71);
+            this.txtCh4SpecialWeather.Name = "txtCh4SpecialWeather";
+            this.txtCh4SpecialWeather.ReadOnly = true;
+            this.txtCh4SpecialWeather.Size = new System.Drawing.Size(517, 20);
+            this.txtCh4SpecialWeather.TabIndex = 25;
+            this.txtCh4SpecialWeather.Text = "Heavy Snowfall and Strong Wind";
+            this.txtCh4SpecialWeather.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 419);
+            this.ClientSize = new System.Drawing.Size(655, 561);
+            this.Controls.Add(this.gbxCh4);
             this.Controls.Add(this.gbxRounds);
             this.Controls.Add(this.gbxTimer);
             this.Controls.Add(this.gbxBlizzard);
@@ -714,6 +1007,8 @@
             this.gbxTimer.PerformLayout();
             this.gbxRounds.ResumeLayout(false);
             this.gbxRounds.PerformLayout();
+            this.gbxCh4.ResumeLayout(false);
+            this.gbxCh4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -782,6 +1077,33 @@
         private System.Windows.Forms.Button btnAddRounds;
         private System.Windows.Forms.TextBox txtNumRounds;
         private System.Windows.Forms.Label lblNumRounds;
+        private System.Windows.Forms.GroupBox gbxCh4;
+        private System.Windows.Forms.TextBox txtToDougans;
+        private System.Windows.Forms.Button btnEndShowdown;
+        private System.Windows.Forms.Button btnStartShowdown;
+        private System.Windows.Forms.Button btnResetCh4;
+        private System.Windows.Forms.Button btnStartCh4;
+        private System.Windows.Forms.TextBox txtToSunblight;
+        private System.Windows.Forms.TextBox txtBrynShander;
+        private System.Windows.Forms.TextBox txtToBrynShander;
+        private System.Windows.Forms.TextBox txtTargos;
+        private System.Windows.Forms.TextBox txtToTargos;
+        private System.Windows.Forms.TextBox txtBremen;
+        private System.Windows.Forms.TextBox txtToBremen;
+        private System.Windows.Forms.TextBox txtLonelywood;
+        private System.Windows.Forms.TextBox txtToLonelywood;
+        private System.Windows.Forms.TextBox txtTermalaine;
+        private System.Windows.Forms.TextBox txtToTermalaine;
+        private System.Windows.Forms.TextBox txtCaerKonig;
+        private System.Windows.Forms.TextBox txtToCaerKonig;
+        private System.Windows.Forms.TextBox txtCaerDineval;
+        private System.Windows.Forms.TextBox txtToCaerDineval;
+        private System.Windows.Forms.TextBox txtEasthaven;
+        private System.Windows.Forms.TextBox txtToEasthaven;
+        private System.Windows.Forms.TextBox txtGoodMead;
+        private System.Windows.Forms.TextBox txtToGoodMead;
+        private System.Windows.Forms.TextBox txtDougans;
+        private System.Windows.Forms.TextBox txtCh4SpecialWeather;
     }
 }
 

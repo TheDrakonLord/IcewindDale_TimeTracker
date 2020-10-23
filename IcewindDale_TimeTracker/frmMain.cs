@@ -76,6 +76,13 @@ namespace IcewindDale_TimeTracker
 
         int _rounds = 0;
 
+        int _ch4Start = 0;
+        int _ch4ShowdownStart = 0;
+        int _ch4ShowdownReduction = 0;
+        int _ch4Elapsed = 0;
+        bool _ch4Active = false;
+        bool _ch4ShowdownActive = false;
+
         public frmMain()
         {
             InitializeComponent();
@@ -140,6 +147,24 @@ namespace IcewindDale_TimeTracker
             else
             {
                 txtSacrifices.BackColor = Color.White;
+            }
+
+
+            if (_ch4Active)
+            {
+                _ch4Elapsed = ((_currentDate * _dayInSeconds) + (_currentHour * _hourInSeconds) + (_currentMin * _minInSeconds) + _currentSec) - _ch4Start;
+                if (_ch4ShowdownActive)
+                {
+                    checkCh4State(_ch4ShowdownStart - _ch4Start);
+                }
+                else
+                {
+                    checkCh4State(_ch4Elapsed - _ch4ShowdownReduction);
+                }
+            }
+            else
+            {
+                setDefaultCh4State();
             }
         }
 
@@ -262,6 +287,8 @@ namespace IcewindDale_TimeTracker
             loadData();
             tmrIRL.Enabled = false;
             lblTimer.Text = $"{_irlHours} : {_irlMinutes} : {_irlSeconds}";
+            setDefaultCh4State();
+            btnEndShowdown.Enabled = false;
             refresh();
         }
 
@@ -562,6 +589,193 @@ namespace IcewindDale_TimeTracker
                 _rounds = 0;
             }
             txtNumRounds.Clear();
+        }
+
+        private void btnStartCh4_Click(object sender, EventArgs e)
+        {
+            _ch4Active = true;
+            _ch4Start = (_currentDate * _dayInSeconds) + (_currentHour * _hourInSeconds) + (_currentMin * _minInSeconds) + _currentSec;
+            btnStartCh4.Enabled = false;
+        }
+
+        private void btnStartShowdown_Click(object sender, EventArgs e)
+        {
+            _ch4ShowdownActive = true;
+            _ch4ShowdownStart = (_currentDate * _dayInSeconds) + (_currentHour * _hourInSeconds) + (_currentMin * _minInSeconds) + _currentSec;
+            btnStartShowdown.Enabled = false;
+            btnStartShowdown.BackColor = Color.Red;
+            btnEndShowdown.Enabled = true;
+        }
+
+        private void btnEndShowdown_Click(object sender, EventArgs e)
+        {
+            _ch4ShowdownActive = false;
+            _ch4ShowdownReduction += ((_currentDate * _dayInSeconds) + (_currentHour * _hourInSeconds) + (_currentMin * _minInSeconds) + _currentSec) - _ch4ShowdownStart;
+            btnStartShowdown.Enabled = true;
+            btnStartShowdown.BackColor = Color.White;
+            btnEndShowdown.Enabled = false;
+        }
+
+        private void btnResetCh4_Click(object sender, EventArgs e)
+        {
+            _ch4ShowdownReduction = 0;
+            _ch4Elapsed = 0;
+            _ch4Active = false;
+            btnStartCh4.Enabled = true;
+            setDefaultCh4State();
+        }
+
+        private void checkCh4State(int elapsedSeconds)
+        {
+            if (elapsedSeconds > 203400)// at sunblight (repairing)
+            {
+                setDefaultCh4State();
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 190800)// otw to sunblight
+            {
+                setDefaultCh4State();
+                txtToSunblight.BackColor = Color.Red;
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 147600)// at bryn shander
+            {
+                setDefaultCh4State();
+                txtBrynShander.BackColor = Color.Red;
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 145800)// otw to bryn shander
+            {
+                setDefaultCh4State();
+                txtToBrynShander.BackColor = Color.Red;
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 117000)// at targos
+            {
+                setDefaultCh4State();
+                txtTargos.BackColor = Color.Red;
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 115200)// otw to targos
+            {
+                setDefaultCh4State();
+                txtToTargos.BackColor = Color.Red;
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 108000)// at bremen
+            {
+                setDefaultCh4State();
+                txtBremen.BackColor = Color.Red;
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 102600)// otw to bremen
+            {
+                setDefaultCh4State();
+                txtToBremen.BackColor = Color.Red;
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 95400)// at lonelywood
+            {
+                setDefaultCh4State();
+                txtLonelywood.BackColor = Color.Red;
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 93600)// otw to lonelywood
+            {
+                setDefaultCh4State();
+                txtToLonelywood.BackColor = Color.Red;
+                txtCh4SpecialWeather.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 72000)// at termalaine
+            {
+                setDefaultCh4State();
+                txtTermalaine.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 64800)// otw to termalaine
+            {
+                setDefaultCh4State();
+                txtToTermalaine.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 59400)// at caer-konig
+            {
+                setDefaultCh4State();
+                txtCaerKonig.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 55800)// otw to caer-konig
+            {
+                setDefaultCh4State();
+                txtToCaerKonig.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 52200)// at caer-dineval
+            {
+                setDefaultCh4State();
+                txtCaerDineval.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 48600)// otw to caer-dineval
+            {
+                setDefaultCh4State();
+                txtToCaerDineval.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 19800)// at easthaven
+            {
+                setDefaultCh4State();
+                txtEasthaven.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 14400)// otw to easthaven
+            {
+                setDefaultCh4State();
+                txtToEasthaven.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 10800)// at good mead
+            {
+                setDefaultCh4State();
+                txtGoodMead.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 9000)// otw to good mead
+            {
+                setDefaultCh4State();
+                txtToGoodMead.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 7200)// at dougan's hole
+            {
+                setDefaultCh4State();
+                txtDougans.BackColor = Color.Red;
+            }
+            else if (elapsedSeconds > 0)// otw to dougan's hole
+            {
+                setDefaultCh4State();
+                txtToDougans.BackColor = Color.Red;
+            }
+            else //at sunblight (undeparted)
+            {
+                setDefaultCh4State();
+            }
+        }
+
+        private void setDefaultCh4State()
+        {
+            txtToDougans.BackColor = Color.White;
+            txtDougans.BackColor = Color.White;
+            txtToGoodMead.BackColor = Color.White;
+            txtGoodMead.BackColor = Color.White;
+            txtToEasthaven.BackColor = Color.White;
+            txtEasthaven.BackColor = Color.White;
+            txtToCaerDineval.BackColor = Color.White;
+            txtCaerDineval.BackColor = Color.White;
+            txtToCaerKonig.BackColor = Color.White;
+            txtCaerKonig.BackColor = Color.White;
+            txtToTermalaine.BackColor = Color.White;
+            txtTermalaine.BackColor = Color.White;
+            txtToLonelywood.BackColor = Color.White;
+            txtLonelywood.BackColor = Color.White;
+            txtToBremen.BackColor = Color.White;
+            txtBremen.BackColor = Color.White;
+            txtToTargos.BackColor = Color.White;
+            txtTargos.BackColor = Color.White;
+            txtToBrynShander.BackColor = Color.White;
+            txtBrynShander.BackColor = Color.White;
+            txtToSunblight.BackColor = Color.White;
+            txtCh4SpecialWeather.BackColor = Color.White;
         }
     }
 }
